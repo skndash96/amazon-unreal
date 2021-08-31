@@ -10,7 +10,7 @@ export default function Products() {
             <ul>
                 {products().map((item, index) => {
                     return (
-                        <li>
+                        <li key={index}>
                             <Product {...item} />
                         </li>
                     );

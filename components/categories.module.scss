@@ -1,8 +1,4 @@
-@import '../utils/variables';
-
-
-
-
+@import "../utils/variables";
 
 .categories {
     display: flex;
@@ -16,9 +12,9 @@
         height: 14rem;
         width: 10rem;
         flex-shrink: 0;
-        border-radius: .5rem;
+        border-radius: 0.5rem;
         overflow: hidden;
-        margin: 0 .5rem;
+        margin: 0 0.5rem;
         box-shadow: 3px 3px 10px rgba(darken($primary, 90%), 0.2);
         background: $primary;
         scroll-snap-align: center;
