@@ -1,0 +1,31 @@
+@import './variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: calc(#{0.5rem} + #{100vmin} * #{0.025});
+}
+
+html,
+body {
+    width: 100%;
+    font-family: Montserrat;
+}
+
+.container, .wrapper {
+    max-width: 100%
+}
+
+.no-scrollbar {
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        width: 0;
+        display: none; 
+    }
+}
