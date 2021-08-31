@@ -1,0 +1,28 @@
+@import "../utils/variables";
+
+.product {
+    padding: 1rem;
+    background: $primary;
+    min-height: 100%;
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 5px 5px 20px rgba(darken($primary, 90%), 0.2);
+    [class~="product-pic"] {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: auto;
+    }
+    [class~="product-rating"] {
+        margin-top: 1rem;
+        font-weight: 700;
+        span:first-child {
+            color: $contrast;
+            margin: 0 0.5rem;
+        }
+        span:last-child {
+            font-weight: 300;
+            margin: 0 0.5rem;
+        }
+    }
+}

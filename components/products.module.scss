@@ -1,0 +1,26 @@
+@import "../utils/variables";
+
+.products {
+    width: 100%;
+    padding: 1rem;
+    ul {
+        display: grid;
+        grid-template-columns: 1fr;
+        @media (orientation: landscape) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        grid-template-rows: repeat(auto-fit);
+        gap: 1rem;
+    }
+    h2 {
+        margin: 0.5rem 0 1rem 0;
+        color: $tertiary;
+        text-shadow: 2px 2px $contrast;
+        &::first-letter {
+            text-shadow: none;
+        }
+    }
+}
