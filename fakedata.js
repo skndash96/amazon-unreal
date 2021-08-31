@@ -5,19 +5,29 @@ export const banners = [
     },
     {
         src: "https://m.media-amazon.com/images/I/81Q62pLRIzL._SR1236,1080_.png",
-        destination: "",
+        destination: "/households",
     },
     {
         src: "https://m.media-amazon.com/images/I/51CWHEaL4vL._SR1236,1080_.jpg",
-        destination: "",
+        destination: "/electronics",
     },
     {
         src: "https://m.media-amazon.com/images/I/51FkM+rv2BL._SR1236,1080_.jpg",
-        destination: "",
+        destination: "/electronics",
     },
 ];
 
 export const categories = [
+    "best-sellers",
+    "new-products",
+    "cosmetics",
+    "electronics",
+    "households",
+    "books"
+]
+    
+
+export const heroCategories = [
     {
         name: "Oculus",
         image: "https://m.media-amazon.com/images/I/31ZZ6Gc+4wL._SR270,360_.jpg"

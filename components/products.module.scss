@@ -6,10 +6,10 @@
     ul {
         display: grid;
         grid-template-columns: 1fr;
-        @media (orientation: landscape) {
+        @media (min-width: 592px) {
             grid-template-columns: 1fr 1fr;
         }
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
             grid-template-columns: 1fr 1fr 1fr;
         }
         grid-template-rows: repeat(auto-fit);
@@ -20,7 +20,11 @@
         color: $tertiary;
         text-shadow: 2px 2px $contrast;
         &::first-letter {
-            text-shadow: none;
+            color: $contrast;
+            text-shadow: 2px 2px $tertiary;
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-right: 5px;
         }
     }
 }

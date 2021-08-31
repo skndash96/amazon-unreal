@@ -2,6 +2,7 @@ import Header from "../components/header";
 import Hero from "../components/hero";
 import Products from "../components/products";
 import Categories from "../components/categories";
+import { products } from "../fakedata"
 
 export default function Index() {
     return (
@@ -9,7 +10,7 @@ export default function Index() {
             <Header />
             <Hero />
             <Categories />
-            <Products />
+            <Products title="🔥 Best Sellers" products={products()} />
         </div>
     );
 }

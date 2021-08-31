@@ -1,5 +1,5 @@
 import styles from "./categories.module.scss";
-import { categories } from "../fakedata";
+import { heroCategories } from "../fakedata";
 import Image from "next/image";
 
 export default function Categories() {
@@ -7,7 +7,7 @@ export default function Categories() {
         <div className={"container no-scrollbar " + styles.categories}>
             <Card isDisclaimer />
 
-            {categories.map((category, idx) => (
+            {heroCategories.map((category, idx) => (
                 <Card key={idx} {...category} />
             ))}
         </div>
