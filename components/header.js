@@ -15,7 +15,7 @@ export default function Header() {
                     <button>
                         <RiMenuFoldFill />
                     </button>
-                    <Link href="/">
+                    <Link href="/" passHref={false}>
                         <FaAmazon />
                     </Link>
                 </div>

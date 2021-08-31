@@ -13,6 +13,7 @@ export default function Hero() {
                         priority={true}
                         layout="fill"
                         src={data.src}
+                        alt="banner"
                     />
                 </div>
             ))}

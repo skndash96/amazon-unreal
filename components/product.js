@@ -13,7 +13,12 @@ export default function Product({
     return (
         <div className={styles.product}>
             <div className="product-pic">
-                <Image objectFit="contain" layout="fill" src={image} />
+                <Image
+                    objectFit="contain"
+                    layout="fill"
+                    src={image}
+                    alt={title}
+                />
             </div>
 
             <h4>{title.split(/ +/).slice(0, 7).join(" ") + ".."}</h4>
