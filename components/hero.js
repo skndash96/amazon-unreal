@@ -25,7 +25,7 @@ export default function Hero() {
         <div className={"container no-scrollbar " + styled.hero}>
             {
                 data.map((data, index) => (
-                    <div className="hero-image">
+                    <div key={index} className="hero-image">
                        <img src={data.src} />
                     </div>
                 ))
