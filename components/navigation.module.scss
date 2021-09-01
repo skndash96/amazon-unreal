@@ -1,0 +1,67 @@
+@import '../utils/variables';
+
+.navigation {
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: darken($tertiary, 10%);
+    color: $primary;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s ease;
+    transform: translateX(-100%);
+    button {
+        margin-top: .5rem;
+        font-size: 1.5rem;
+        color: $primary;
+        border: none;
+        outline: none;
+        background: none;
+        align-self: flex-start;
+    }
+    ul {
+        svg {
+            margin-right: .5rem;
+        }
+        li {
+            margin: .65rem 0;
+            &:hover {
+                color: $contrast;
+            }
+            &:last-of-type {
+                &:hover {
+                    color: currentColor;
+                }
+            }
+        }
+        li[class~="depts"] {
+            margin-top: 1rem;
+            ul {
+                @media (max-height: 376px) {
+                    font-size: .8rem;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    grid-template-rows: 1fr 1fr;
+                    svg {
+                        display: none;
+                    }
+                }
+                li {
+                    margin-left: 1rem;
+                    &:hover {
+                        color: $contrast;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.active {
+    transform: translateX(0);
+}

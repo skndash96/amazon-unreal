@@ -13,7 +13,7 @@ export default function Hero() {
                         <div key={index} className="hero-image">
                             <Image
                                 objectFit="cover"
-                                priority={true}
+                                priority={!!(index < 3)}
                                 layout="fill"
                                 src={src}
                                 alt="banner"

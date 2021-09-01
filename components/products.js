@@ -1,5 +1,5 @@
 import styles from "./products.module.scss";
-import Product from "./product";
+import Card from "./productCard";
 
 export default function Products({ title, products }) {
     return (
@@ -10,7 +10,7 @@ export default function Products({ title, products }) {
                 {products.map((item, index) => {
                     return (
                         <li key={index}>
-                            <Product {...item} />
+                            <Card isPrior={!!(index < 5)} {...item} />
                         </li>
                     );
                 })}

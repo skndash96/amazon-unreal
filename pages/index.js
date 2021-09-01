@@ -8,9 +8,11 @@ export default function Index() {
     return (
         <div className="container">
             <Header />
-            <Hero />
-            <Categories />
-            <Products title="🔥 Best Sellers" products={products()} />
+            <main>
+                <Hero />
+                <Categories />
+                <Products title="🔥 Best Sellers" products={products()} />
+            </main>
         </div>
     );
 }

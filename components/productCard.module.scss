@@ -1,20 +1,26 @@
 @import "../utils/variables";
 
 .product {
-    padding: 1rem;
+    padding: 1rem 1rem .5rem;
     background: $primary;
     min-height: 100%;
     width: 100%;
     border-radius: 0.5rem;
     box-shadow: 5px 5px 20px rgba(darken($primary, 90%), 0.2);
+    display: grid;
+    align-items: center;
+    grid-template-rows: 8fr 3fr 1fr 1fr;
+    gap: .5rem;
     [class~="product-pic"] {
         position: relative;
         width: 200px;
         height: 200px;
         margin: auto;
     }
+    [class~="product-price"] {
+        align-self: center;
+    }
     [class~="product-rating"] {
-        margin-top: 1rem;
         font-weight: 700;
         span:first-child {
             color: $contrast;

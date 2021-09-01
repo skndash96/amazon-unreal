@@ -7,14 +7,14 @@ export default function Categories() {
         <div className={"container no-scrollbar " + styles.categories}>
             <Card isDisclaimer />
 
-            {heroCategories.map((category, idx) => (
-                <Card key={idx} {...category} />
+            {heroCategories.map((category, index) => (
+                <Card isPrior={!!(index < 3)} key={index} {...category} />
             ))}
         </div>
     );
 }
 
-const Card = ({ isDisclaimer, image, name }) => {
+function Card({ isPrior, isDisclaimer, image, name }) {
     return (
         <div className={`card${isDisclaimer ? " disclaimer" : ""}`}>
             {isDisclaimer ? (
@@ -26,6 +26,7 @@ const Card = ({ isDisclaimer, image, name }) => {
                         src={image}
                         layout="fill"
                         objectFit="fill"
+                        isPrior={isPrior}
                     />
                 </div>
             )}

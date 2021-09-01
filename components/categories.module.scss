@@ -3,9 +3,9 @@
 .categories {
     display: flex;
     overflow-x: scroll;
+    padding: 1rem 0;
+    margin: -1rem 0;
     margin-top: -4rem;
-    padding: 1rem;
-    padding-top: 0;
     scroll-snap-type: x mandatory;
     backdrop-filter: blur(5px);
     [class~="card"] {
@@ -22,6 +22,9 @@
             width: 100%;
             height: 100%;
             position: relative;
+        }
+        &:hover {
+            transform: scale(105%);
         }
     }
     [class~="disclaimer"] {

@@ -1,5 +1,6 @@
-import styles from "./product.module.scss";
+import styles from "./productCard.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 import { ImStarHalf, ImStarFull } from "react-icons/im";
 
 export default function Product({
@@ -9,11 +10,14 @@ export default function Product({
     image,
     rating,
     price,
+    id,
+    isPrior
 }) {
-    return (
+    return (<Link href={`/product/${id}`}>
         <div className={styles.product}>
             <div className="product-pic">
                 <Image
+                    priority={isPrior}
                     objectFit="contain"
                     layout="fill"
                     src={image}
@@ -21,9 +25,14 @@ export default function Product({
                 />
             </div>
 
-            <h4>{title.split(/ +/).slice(0, 7).join(" ") + ".."}</h4>
-
-            <p>{description.split(/ +/).slice(0, 10).join(" ") + "..."}</p>
+            <div className="product-text">
+                <h4>{title.split(/ +/).slice(0, 7).join(" ") + ".."}</h4>
+                <p>{description.split(/ +/).slice(0, 10).join(" ") + "..."}</p>
+            </div>
+            
+            <div className="product-price">
+                <h3> $ {price} </h3>
+            </div>
 
             <div className="product-rating">
                 <span>
@@ -36,5 +45,5 @@ export default function Product({
                 <span>({rating.count})</span>
             </div>
         </div>
-    );
+    </Link>);
 }

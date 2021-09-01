@@ -7,21 +7,30 @@ import {
 } from "react-icons/ri";
 import Link from "next/link";
 import { categories } from "../fakedata";
+import Navigation from './navigation'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 export default function Header() {
-    return (
+    const dispatch = useDispatch()
+    
+    const openNav = () => dispatch({
+        type: 'OPEN_NAV'
+    })
+    
+    return <>
         <div className={"container " + styles.header}>
             <div className="header-inputs">
                 <div>
                     <button>
-                        <RiMenuFoldFill />
+                        <RiMenuFoldFill onClick={openNav} />
                     </button>
                     <Link href="/" passHref={false}>
                         <FaAmazon />
                     </Link>
                 </div>
 
-                <div className="nav-search">
+                <div className="header-search">
                     <input type="text" placeholder="Anything from A to Z" />
                     <div>
                         <FaSearch />
@@ -35,7 +44,7 @@ export default function Header() {
                 </div>
             </div>
 
-            <div className="nav-categories">
+            <div className="header-categories">
                 <ul className="no-scrollbar">
                     {categories.map((category, index) => (
                         <li key={index}>
@@ -52,5 +61,7 @@ export default function Header() {
                 </ul>
             </div>
         </div>
-    );
+        
+        <Navigation />
+    </>;
 }

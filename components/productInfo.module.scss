@@ -1,0 +1,53 @@
+@import '../utils/variables';
+
+.page {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    & > * {
+        margin: .5rem 0;
+    }
+    [class~="product-pic"] {
+        position: relative;
+        width: 100%;
+        height: 20rem;
+        margin: 0;
+    }
+    [class~="product-title"] {
+        margin-top: 0;
+        h3 {
+            color: rgba($tertiary, .75);
+        }
+    }
+    [class~="product-rating"] {
+        font-weight: 700;
+        span:first-child {
+            color: $contrast;
+            margin: 0 0.5rem;
+        }
+        span:last-child {
+            font-weight: 300;
+            margin: 0 0.5rem;
+        }
+    }
+    [class~="product-price"] {
+        span {
+            font-weight: 300;
+            font-size: 1rem;
+        }
+    }
+    
+    p, ul {
+        font-family: serif;
+    }
+    [class~="product-info"] ~ h4 {
+        color: $tertiary;
+        margin-bottom: -.75rem;
+    }
+    ul {
+        li {
+            margin: .5rem 0;
+        }
+    }
+}

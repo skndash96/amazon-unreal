@@ -1,17 +1,35 @@
 import { useMemo } from "react";
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 let store;
 
-const initialState = {};
-
-const reducer = (state = initialState, action) => {
-    switch (action.type) {
-        default:
-            return state;
+const initialState = {
+    session: {
+        navIsOpen: false
     }
 };
+
+const sessionReducer = (state = initialState.session, { type, payload }) => {
+    switch (type) {
+        case 'OPEN_NAV':
+            return {
+                ...state,
+                navIsOpen: true
+            }
+        case 'CLOSE_NAV':
+            return {
+                ...state,
+                navIsOpen: false
+            }
+        default:
+            return state
+    }
+}
+
+const reducer = combineReducers({
+    session: sessionReducer
+})
 
 function initStore(preloadedState = initialState) {
     return createStore(
