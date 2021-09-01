@@ -6,7 +6,7 @@ import {
     RiMenuFoldFill as RiMenuUnfoldFill,
 } from "react-icons/ri";
 import Link from "next/link";
-import { categories } from '../fakedata'
+import { categories } from "../fakedata";
 
 export default function Header() {
     return (
@@ -39,7 +39,12 @@ export default function Header() {
                 <ul className="no-scrollbar">
                     {categories.map((category, index) => (
                         <li key={index}>
-                            <Link href={category.toLowerCase().split(/ +/).join('-')}>
+                            <Link
+                                href={category
+                                    .toLowerCase()
+                                    .split(/ +/)
+                                    .join("-")}
+                            >
                                 {category}
                             </Link>
                         </li>

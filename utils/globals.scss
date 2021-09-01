@@ -1,4 +1,4 @@
-@import './variables';
+@import "./variables";
 
 * {
     margin: 0;
@@ -16,8 +16,9 @@ body {
     font-family: Montserrat;
 }
 
-.container, .wrapper {
-    max-width: 100%
+.container,
+.wrapper {
+    max-width: 100%;
 }
 
 .no-scrollbar {
@@ -26,7 +27,7 @@ body {
     -ms-overflow-style: none;
     &::-webkit-scrollbar {
         width: 0;
-        display: none; 
+        display: none;
     }
 }
 

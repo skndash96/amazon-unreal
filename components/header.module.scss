@@ -10,16 +10,15 @@
         place-items: center;
         grid-template-columns: 2fr 6fr 1fr;
         gap: 0.5rem;
-        font-size: 1.25rem;
 
         button,
         input {
-            font-size: 1.5rem;
             margin-right: 0.5rem;
             background: none;
             color: currentColor;
             outline: none;
             border: none;
+            font-size: 1.1rem;
         }
 
         [class~="nav-search"] {
@@ -28,7 +27,6 @@
             justify-content: center;
             width: 100%;
             input {
-                font-size: 0.8rem;
                 background: $primary;
                 color: $secondary;
                 width: 80%;
@@ -59,8 +57,8 @@
             margin: 0.75rem 0 0.5rem 0;
             scroll-snap-type: x mandatory;
             a {
-               color: currentColor;
-               text-decoration: none;
+                color: currentColor;
+                text-decoration: none;
             }
             li {
                 scroll-snap-align: center;

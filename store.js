@@ -4,9 +4,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 let store;
 
-const initialState = {
-    
-};
+const initialState = {};
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {

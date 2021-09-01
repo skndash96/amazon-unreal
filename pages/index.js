@@ -2,7 +2,7 @@ import Header from "../components/header";
 import Hero from "../components/hero";
 import Products from "../components/products";
 import Categories from "../components/categories";
-import { products } from "../fakedata"
+import { products } from "../fakedata";
 
 export default function Index() {
     return (
