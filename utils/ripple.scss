@@ -7,14 +7,14 @@
         left: 50%;
         transition: all 0.2s ease;
         transform: translate(-50%, -50%) scale(0);
-        width: .5rem;
-        height: .5rem;
+        width: 0.5rem;
+        height: 0.5rem;
         border-radius: 50%;
-        background-color: rgba(darken($primary, 20%), .2);
+        background-color: rgba(darken($primary, 20%), 0.2);
     }
     &:hover {
         &::after {
-            transform: translate(-50%, -75%) scale(4) ;
+            transform: translate(-50%, -75%) scale(4);
         }
     }
 }

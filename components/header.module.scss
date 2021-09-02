@@ -1,5 +1,5 @@
 @import "../utils/variables";
-@import '../utils/ripple.scss';
+@import "../utils/ripple.scss";
 
 .header {
     padding: 0.5rem;
@@ -11,14 +11,14 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 1rem;
-        
+
         button:first-child {
             margin-right: 1rem;
         }
         button:nth-child(2) {
-            margin: 0 auto 0 2rem;
+            margin: 0 auto 0 0.5rem;
         }
-        
+
         button,
         input {
             background: none;
@@ -27,11 +27,11 @@
             border: none;
             font-size: 1.1rem;
         }
-        
+
         input::placeholder {
-            font-size: .75rem;
+            font-size: 0.75rem;
         }
-        
+
         button {
             @include ripple;
         }
@@ -52,7 +52,7 @@
                 margin: 0;
             }
             div {
-                padding: .65rem;
+                padding: 0.65rem;
                 width: 20%;
                 max-width: 5rem;
                 display: grid;

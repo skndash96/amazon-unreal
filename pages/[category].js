@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Error from "next/error";
 import { products, categories } from "../fakedata";
 import Header from "../components/header";
+import Footer from "../components/footer";
 
 export default function Category({ category }) {
     if (!categories.includes(category)) {
@@ -14,6 +15,7 @@ export default function Category({ category }) {
         <div className="container">
             <Header />
             <Products title={category} products={products().slice(9)} />
+            <Footer />
         </div>
     );
 }
@@ -21,7 +23,7 @@ export default function Category({ category }) {
 export function getServerSideProps({ params }) {
     return {
         props: {
-            category: params.category
-        }
+            category: params.category,
+        },
     };
-};
+}

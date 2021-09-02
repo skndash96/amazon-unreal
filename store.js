@@ -5,25 +5,25 @@ import { composeWithDevTools } from "redux-devtools-extension";
 let store;
 
 const initialState = {
-    navIsOpen: false
+    navIsOpen: false,
 };
 
 const reducer = (state = initialState.session, { type, payload }) => {
     switch (type) {
-        case 'OPEN_NAV':
+        case "OPEN_NAV":
             return {
                 ...state,
-                navIsOpen: true
-            }
-        case 'CLOSE_NAV':
+                navIsOpen: true,
+            };
+        case "CLOSE_NAV":
             return {
                 ...state,
-                navIsOpen: false
-            }
+                navIsOpen: false,
+            };
         default:
-            return state
+            return state;
     }
-}
+};
 
 function initStore(preloadedState = initialState) {
     return createStore(

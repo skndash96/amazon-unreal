@@ -7,13 +7,14 @@
 }
 
 html {
-    font-size: calc(#{0.5rem} + #{100vmin} * #{0.020});
+    font-size: calc(#{0.5rem} + #{100vmin} * #{0.02});
 }
 
 html,
 body {
     width: 100%;
     font-family: Montserrat;
+    scroll-behavior: smooth;
 }
 
 .container,

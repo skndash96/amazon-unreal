@@ -1,5 +1,5 @@
-@import '../utils/variables';
-@import '../utils/ripple.scss';
+@import "../utils/variables";
+@import "../utils/ripple.scss";
 
 .navigation {
     position: fixed;
@@ -14,10 +14,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
     transform: translateX(-100%);
     button {
-        margin-top: .5rem;
+        margin-top: 0.5rem;
         font-size: 1.5rem;
         color: $primary;
         border: none;
@@ -30,10 +30,10 @@
     }
     ul {
         svg {
-            margin-right: .5rem;
+            margin-right: 0.5rem;
         }
         li {
-            margin: .65rem 0;
+            margin: 0.65rem 0;
             &:hover {
                 color: $contrast;
             }
@@ -47,7 +47,7 @@
             margin-top: 1rem;
             ul {
                 @media (max-height: 452px) {
-                    font-size: .8rem;
+                    font-size: 0.8rem;
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr;
                     grid-template-rows: 1fr 1fr;
@@ -56,10 +56,14 @@
                     }
                 }
                 li {
-                    font-size: .9rem;
+                    font-size: 0.9rem;
                     margin-left: 1rem;
                     &:hover {
                         color: $contrast;
+                    }
+                    a {
+                        color: currentColor;
+                        text-decoration: none;
                     }
                 }
             }

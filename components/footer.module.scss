@@ -1,0 +1,51 @@
+@import "../utils/variables";
+
+.footer {
+    display: grid;
+    grid-auto-rows: 3;
+    background: darken($tertiary, 10%);
+    color: $primary;
+    h4 {
+        text-align: center;
+        background: $tertiary;
+        padding: 1rem;
+        a {
+            color: currentColor;
+            text-decoration: none;
+        }
+    }
+    ul:nth-child(2) {
+        margin: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            margin: 0.5rem;
+            background-color: $tertiary;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            flex-grow: 1;
+            max-width: 20rem;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba($secondary, 0.2);
+            &:hover {
+                background: lighten($tertiary, 10%);
+            }
+            &:last-child {
+                margin: 0.5rem auto;
+            }
+        }
+    }
+    ul:nth-child(3) {
+        font-size: 0.9rem;
+        display: flex;
+        justify-self: center;
+        li {
+            margin: 0.5rem;
+            color: lighten($tertiary, 50%);
+            &:hover {
+                color: $primary;
+            }
+        }
+        margin-bottom: 1rem;
+    }
+}

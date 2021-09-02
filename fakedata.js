@@ -24,6 +24,8 @@ export const categories = [
     "electronics",
     "households",
     "books",
+    "groceries",
+    "stationaries",
 ];
 
 export const heroCategories = [

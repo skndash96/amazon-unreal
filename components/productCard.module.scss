@@ -1,7 +1,7 @@
 @import "../utils/variables";
 
 .product {
-    padding: 1rem 1rem .5rem;
+    padding: 1rem 1rem 0.5rem;
     background: $primary;
     width: 100%;
     min-height: 100%;
@@ -9,7 +9,8 @@
     box-shadow: 5px 5px 20px rgba(darken($primary, 90%), 0.2);
     display: grid;
     align-items: center;
-    gap: .5rem;
+    position: relative;
+    gap: 0.5rem;
     [class~="product-pic"] {
         position: relative;
         width: 100%;
@@ -17,6 +18,9 @@
         margin: 0 auto;
         display: grid;
         place-items: center;
+        &:hover {
+            transform: scale(95%);
+        }
     }
     [class~="product-price"] {
         align-self: center;

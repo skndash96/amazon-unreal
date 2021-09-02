@@ -1,4 +1,4 @@
-@import '../utils/variables';
+@import "../utils/variables";
 
 .page {
     width: 100%;
@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     & > * {
-        margin: .5rem 0;
+        margin: 0.5rem 0;
     }
     [class~="product-pic"] {
         position: relative;
@@ -18,7 +18,7 @@
     [class~="product-title"] {
         margin-top: 0;
         h3 {
-            color: rgba($tertiary, .75);
+            color: rgba($tertiary, 0.75);
         }
     }
     [class~="product-rating"] {
@@ -38,7 +38,7 @@
             font-size: 1rem;
         }
     }
-    
+
     ul {
         padding: 0 1rem 1rem 2rem;
         border-left: 5px solid $tertiary;
@@ -47,17 +47,18 @@
             text-transform: capitalize;
         }
     }
-    
-    p, ul {
+
+    p,
+    ul {
         font-family: serif;
     }
-    
+
     [class~="product-info"] ~ h3 {
         color: $tertiary;
     }
     ul {
         li {
-            margin: .5rem 0;
+            margin: 0.5rem 0;
         }
     }
 }
