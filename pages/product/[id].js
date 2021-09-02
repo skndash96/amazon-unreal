@@ -5,7 +5,7 @@ import Error from 'next/error'
 import { products } from '../../fakedata'
 import { useEffect, useState } from 'react'
 
-function ProductPage({ id }) {
+export default function ProductPage({ id }) {
     const [state, setState] = useState({
         data: {
             loading: true
@@ -42,10 +42,10 @@ function ProductPage({ id }) {
     )
 }
 
-ProductPage.getInitialProps = function ({ query }) {
+export function getServerSideProps({ params }) {
     return {
-        id: query.id
+        props: {
+            id: params.id
+        }
     }
 }
-
-export default ProductPage

@@ -14,21 +14,24 @@ import { useDispatch } from 'react-redux'
 export default function Header() {
     const dispatch = useDispatch()
     
-    const openNav = () => dispatch({
-        type: 'OPEN_NAV'
-    })
+    const openNav = () => {
+        dispatch({
+            type: 'OPEN_NAV'
+        })
+    }
     
     return <>
         <div className={"container " + styles.header}>
             <div className="header-inputs">
-                <div>
+                <button>
+                    <RiMenuFoldFill onClick={openNav} />
+                </button>
+
+                <Link href="/">
                     <button>
-                        <RiMenuFoldFill onClick={openNav} />
-                    </button>
-                    <Link href="/" passHref={false}>
                         <FaAmazon />
-                    </Link>
-                </div>
+                    </button>
+                </Link>
 
                 <div className="header-search">
                     <input type="text" placeholder="Anything from A to Z" />
@@ -49,7 +52,7 @@ export default function Header() {
                     {categories.map((category, index) => (
                         <li key={index}>
                             <Link
-                                href={category
+                                href={"/" + category
                                     .toLowerCase()
                                     .split(/ +/)
                                     .join("-")}

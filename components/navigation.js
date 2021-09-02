@@ -22,11 +22,13 @@ import { useSelector, useDispatch } from 'react-redux'
 
 export default function Navigation () {
     const dispatch = useDispatch()
-    const { navIsOpen } = useSelector(state => state.session)
+    const { navIsOpen } = useSelector(state => state)
     
-    const closeNav = () => dispatch({
-        type: 'CLOSE_NAV'
-    })
+    const closeNav = () => {
+        dispatch({
+            type: 'CLOSE_NAV'
+        })
+    }
     
     return (
         <div id="navigation" className={`container ${styles.navigation} ${navIsOpen ? styles.active : ''}`}>

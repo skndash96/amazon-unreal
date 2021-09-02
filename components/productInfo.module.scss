@@ -38,12 +38,21 @@
         }
     }
     
+    ul {
+        padding: 0 1rem 1rem 2rem;
+        border-left: 5px solid $tertiary;
+        background: darken($primary, 5%);
+        li {
+            text-transform: capitalize;
+        }
+    }
+    
     p, ul {
         font-family: serif;
     }
-    [class~="product-info"] ~ h4 {
+    
+    [class~="product-info"] ~ h3 {
         color: $tertiary;
-        margin-bottom: -.75rem;
     }
     ul {
         li {

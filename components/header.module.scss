@@ -5,20 +5,21 @@
     background-color: $tertiary;
     color: $primary;
     [class~="header-inputs"] {
-        display: grid;
-        place-items: center;
-        grid-template-columns: 2fr 6fr 1fr;
-        gap: 0.5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         padding: 0 1rem;
         
-        div:first-child {
-            justify-self: start;
-            align-self: center;
+        button:first-child {
+            margin-right: 1rem;
+        }
+        button:nth-child(2) {
+            justify-self: flex-start;
         }
         
         button,
         input {
-            margin-right: 0.5rem;
             background: none;
             color: currentColor;
             outline: none;
@@ -32,23 +33,22 @@
         
         button {
             position: relative;
-        }
-        
-        button::after {
-            position: absolute;
-            content: "";
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            width: .5rem;
-            height: .5rem;
-            border-radius: 50%;
-            background-color: rgba(darken($primary, 20%), .2);
-        }
-        button:hover {
             &::after {
-                transition: all 0.2s ease;
-                transform: translate(-50%, -75%) scale(3) ;
+                position: absolute;
+                content: "";
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0);
+                width: .5rem;
+                height: .5rem;
+                border-radius: 50%;
+                background-color: rgba(darken($primary, 20%), .2);
+            }
+            &:hover {
+                &::after {
+                    transition: all 0.2s ease;
+                    transform: translate(-50%, -75%) scale(4) ;
+                }
             }
         }
 
@@ -57,6 +57,8 @@
             align-items: center;
             justify-content: center;
             width: 100%;
+            max-width: 20rem;
+            margin: 0 1rem;
             input {
                 background: $primary;
                 color: $secondary;

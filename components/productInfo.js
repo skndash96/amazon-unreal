@@ -48,18 +48,18 @@ export default function ProductInfo({
                 {description.split('|')[0]}
             </p>
             
-            <h4> Specifications </h4>
+            <h3> Specifications </h3>
             <ul>
                 {description.includes('|')
                 ? description.split('|').slice(1).map((spec, index) => (
                     <li key={index}>
-                        {spec.charAt(0).toUpperCase() + spec.slice(1)}
+                        {spec}
                     </li>
                 ))
                 : description.includes('and')
                 ? description.split('and').slice(1).map((spec, index) => (
                     <li key={index}>
-                        {spec.charAt(0).toUpperCase() + spec.slice(1)}
+                        {spec}
                     </li>
                 ))
                 : <li key={1}>

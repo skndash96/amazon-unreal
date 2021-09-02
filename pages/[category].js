@@ -5,7 +5,7 @@ import Error from "next/error";
 import { products, categories } from "../fakedata";
 import Header from "../components/header";
 
-function Category({ category }) {
+export default function Category({ category }) {
     if (!categories.includes(category)) {
         return <Error statusCode={404} />;
     }
@@ -18,10 +18,10 @@ function Category({ category }) {
     );
 }
 
-Category.getInitialProps = function ({ query }) {
+export function getServerSideProps({ params }) {
     return {
-        category: query.category,
+        props: {
+            category: params.category
+        }
     };
 };
-
-export default Category;

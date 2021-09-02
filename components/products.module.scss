@@ -6,7 +6,7 @@
     ul {
         display: grid;
         grid-template-columns: 1fr;
-        @media (min-width: 592px) {
+        @media (min-width: 556px) {
             grid-template-columns: 1fr 1fr;
         }
         @media (min-width: 992px) {
