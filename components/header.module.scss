@@ -18,6 +18,20 @@
         button:nth-child(2) {
             margin: 0 auto 0 0.5rem;
         }
+        button:last-child {
+            span {
+                position: absolute;
+                bottom: -10%;
+                right: -10%;
+                background-color: $contrast;
+                color: $primary;
+                width: .85rem;
+                height: .85rem;
+                padding: .1rem;
+                font-size: .65rem;
+                border-radius: 50%;
+            }
+        }
 
         button,
         input {

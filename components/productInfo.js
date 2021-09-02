@@ -1,6 +1,8 @@
 import styles from "./productInfo.module.scss";
 import Image from "next/image";
 import { ImStarHalf, ImStarFull } from "react-icons/im";
+import { useSelector, useDispatch } from 'react-redux'
+import { HiSparkles } from 'react-icons/hi'
 
 export default function ProductInfo({
     title,
@@ -9,7 +11,28 @@ export default function ProductInfo({
     image,
     category,
     price,
+    id
 }) {
+    const { wishlist, cart } = useSelector(state => state)
+    const dispatch = useDispatch()
+    
+    const handleAddCart = () => {
+        dispatch({
+            type: cart.includes(id) ? 'CART_REMOVE' : 'CART_ADD',
+            payload: {
+                id: id
+            }
+        })
+    }
+    const handleAddWish = () => {
+        dispatch({
+            type: wishlist.includes(id) ? 'WISHLIST_REMOVE' : 'WISHLIST_ADD',
+            payload: {
+                id: id
+            }
+        })
+    }
+    
     return (
         <div className={"container " + styles.page}>
             <div className="product-pic">
@@ -35,6 +58,11 @@ export default function ProductInfo({
             <h2 className="product-price">
                 ${price} <span> (includes GST & taxes) </span>
             </h2>
+            
+            <div className="product-cta">
+                <button className={cart.includes(id) ? "danger" : ""} onClick={handleAddCart}> {cart.includes(id) ? 'Remove from Cart' : 'Add to Cart'} </button>
+                <button className={wishlist.includes(id) ? "danger" : ""} onClick={handleAddWish}> <HiSparkles /> </button>
+            </div>
 
             <p className="product-info">{description.split("|")[0]}</p>
 

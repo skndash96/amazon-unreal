@@ -12,11 +12,10 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 export default function Header() {
-    const { navIsOpen } = useSelector((state) => state);
+    const { cart } = useSelector((state) => state);
     const dispatch = useDispatch();
 
     const openNav = () => {
-        console.log(navIsOpen);
         dispatch({
             type: "OPEN_NAV",
         });
@@ -46,6 +45,7 @@ export default function Header() {
                     <div>
                         <button>
                             <RiShoppingCartLine />
+                            {cart.length > 0 && <span className="cart"> {cart.length} </span>}
                         </button>
                     </div>
                 </div>

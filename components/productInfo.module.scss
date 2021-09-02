@@ -38,6 +38,39 @@
             font-size: 1rem;
         }
     }
+    [class~="product-cta"] {
+        button {
+            background: $contrast;
+            border: none;
+            color: $primary;
+            border-radius: .5rem;
+            padding: .5rem 1rem;
+            margin: 0 .25rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 2px rgba($secondary, .2);
+            box-shadow: 3px 3px 5px rgba($secondary, .2);
+            &:hover {
+                background: lighten($contrast, 10%);
+            }
+            &:last-child {
+                background: $tertiary;
+                &:hover {
+                    background: lighten($tertiary, 10%);
+                }
+            }
+            &[class~="danger"] {
+                background: indianred;
+                &:hover {
+                    background: lighten(indianred, 10%);
+                }
+                &:nth-child(2) {
+                    background: firebrick;
+                    background: lighten(firebrick, 10%);
+                }
+            }
+        }
+    }
 
     ul {
         padding: 0 1rem 1rem 2rem;

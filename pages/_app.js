@@ -4,13 +4,16 @@ import "../utils/globals.scss";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Nprogress from "nprogress";
+import "nprogress/nprogress.css";
+
+Nprogress.configure({ showSpinner: false })
 
 export default function App({ Component, pageProps }) {
     const store = useStore(pageProps.initialReduxState);
     const router = useRouter();
 
     useEffect(() => {
-        const load = (url) => {
+        const load = () => {
             Nprogress.start();
         };
         const unload = () => {
