@@ -32,7 +32,7 @@ export default function Navigation () {
     
     return (
         <div id="navigation" className={`container ${styles.navigation} ${navIsOpen ? styles.active : ''}`}>
-            <button onClick={closeNav}>
+            <button className="ripple" onClick={closeNav}>
                 <RiMenuUnfoldFill />
             </button>
             

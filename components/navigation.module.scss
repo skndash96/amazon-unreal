@@ -1,4 +1,5 @@
 @import '../utils/variables';
+@import '../utils/ripple.scss';
 
 .navigation {
     position: fixed;
@@ -23,6 +24,9 @@
         outline: none;
         background: none;
         align-self: flex-start;
+        &[class~="ripple"] {
+            @include ripple;
+        }
     }
     ul {
         svg {
@@ -42,7 +46,7 @@
         li[class~="depts"] {
             margin-top: 1rem;
             ul {
-                @media (max-height: 376px) {
+                @media (max-height: 452px) {
                     font-size: .8rem;
                     display: grid;
                     grid-template-columns: 1fr 1fr 1fr;
@@ -52,6 +56,7 @@
                     }
                 }
                 li {
+                    font-size: .9rem;
                     margin-left: 1rem;
                     &:hover {
                         color: $contrast;

@@ -1,7 +1,7 @@
 @import "../utils/variables";
 
 .products {
-    width: 100%;
+    max-width: 100%;
     padding: 1rem;
     ul {
         display: grid;

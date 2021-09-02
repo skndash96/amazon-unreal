@@ -1,4 +1,5 @@
 @import "../utils/variables";
+@import '../utils/ripple.scss';
 
 .header {
     padding: 0.5rem;
@@ -15,7 +16,7 @@
             margin-right: 1rem;
         }
         button:nth-child(2) {
-            justify-self: flex-start;
+            margin: 0 auto 0 2rem;
         }
         
         button,
@@ -32,24 +33,7 @@
         }
         
         button {
-            position: relative;
-            &::after {
-                position: absolute;
-                content: "";
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%) scale(0);
-                width: .5rem;
-                height: .5rem;
-                border-radius: 50%;
-                background-color: rgba(darken($primary, 20%), .2);
-            }
-            &:hover {
-                &::after {
-                    transition: all 0.2s ease;
-                    transform: translate(-50%, -75%) scale(4) ;
-                }
-            }
+            @include ripple;
         }
 
         [class~="header-search"] {

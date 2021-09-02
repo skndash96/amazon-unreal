@@ -1,0 +1,20 @@
+@mixin ripple {
+    position: relative;
+    &::after {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 50%;
+        transition: all 0.2s ease;
+        transform: translate(-50%, -50%) scale(0);
+        width: .5rem;
+        height: .5rem;
+        border-radius: 50%;
+        background-color: rgba(darken($primary, 20%), .2);
+    }
+    &:hover {
+        &::after {
+            transform: translate(-50%, -75%) scale(4) ;
+        }
+    }
+}

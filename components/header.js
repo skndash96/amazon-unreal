@@ -9,12 +9,14 @@ import Link from "next/link";
 import { categories } from "../fakedata";
 import Navigation from './navigation'
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 
 export default function Header() {
+    const { navIsOpen } = useSelector(state => state)
     const dispatch = useDispatch()
     
     const openNav = () => {
+        console.log(navIsOpen)
         dispatch({
             type: 'OPEN_NAV'
         })
@@ -23,8 +25,8 @@ export default function Header() {
     return <>
         <div className={"container " + styles.header}>
             <div className="header-inputs">
-                <button>
-                    <RiMenuFoldFill onClick={openNav} />
+                <button onClick={openNav}>
+                    <RiMenuFoldFill />
                 </button>
 
                 <Link href="/">
