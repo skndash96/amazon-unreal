@@ -43,10 +43,14 @@ export default function Header() {
                     </div>
 
                     <div>
-                        <button>
-                            <RiShoppingCartLine />
-                            {cart.length > 0 && <span className="cart"> {cart.length} </span>}
-                        </button>
+                        <Link href="/cart">
+                            <button>
+                                <RiShoppingCartLine />
+                                {cart.length > 0 && (
+                                    <span className="cart"> {cart.length} </span>
+                                )}
+                            </button>
+                        </Link>
                     </div>
                 </div>
 

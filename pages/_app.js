@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import Nprogress from "nprogress";
 import "nprogress/nprogress.css";
 
-Nprogress.configure({ showSpinner: false })
+Nprogress.configure({ showSpinner: false });
 
 export default function App({ Component, pageProps }) {
     const store = useStore(pageProps.initialReduxState);

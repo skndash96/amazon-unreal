@@ -7,12 +7,11 @@ let store;
 const initialState = {
     navIsOpen: false,
     cart: [],
-    wishlist: []
+    wishlist: [],
 };
 
 const reducer = (state = initialState.session, { type, payload }) => {
     switch (type) {
-        
         /*********
         Session
         ********/
@@ -26,64 +25,79 @@ const reducer = (state = initialState.session, { type, payload }) => {
                 ...state,
                 navIsOpen: false,
             };
-            
-            
-        /*********
-        Cart
-        ********/
-        case 'CART_ADD':
-            return {
-                ...state,
-                cart: [...state.cart, payload.id]
-            }
-        
-        case 'CART_REMOVE':
-            if (!state.cart.includes(payload.id)) return state
-            
-            state.cart.splice(
-                state.cart.indexOf(payload.id),
-                1
-            )
-            
-            return {
-                ...state
-            }
-        
-        case 'CART_RESET':
-            return {
-                ...state,
-                cart: payload.cart
-            }
-        
-        
+
         /*********
         Wishlist
         ********/
-        case 'WISHLIST_ADD':
+        case "WISHLIST_ADD":
             return {
                 ...state,
-                wishlist: [...state.wishlist, payload.id]
-            }
-            
-        case 'WISHLIST_REMOVE':
-            if (!state.wishlist.includes(payload.id)) return state
-            
-            state.wishlist.splice(
-                state.wishlist.indexOf(payload.id),
-                1
-            )
-            
-            return {
-                ...state
-            }
-            
-        case 'WISHLIST_RESET':
+                wishlist: [...state.wishlist, payload.id],
+            };
+
+        case "WISHLIST_REMOVE":
+            if (!state.wishlist.includes(payload.id)) return state;
+
+            state.wishlist.splice(state.wishlist.indexOf(payload.id), 1);
+
             return {
                 ...state,
-                wishlist: payload.wishlist
+            };
+
+        case "WISHLIST_RESET":
+            return {
+                ...state,
+                wishlist: payload.wishlist,
+            };
+
+        /*********
+        Cart
+        ********/
+        case "CART_ADD":
+            const addIndex = state.cart.length
+                ? state.cart.findIndex((item) => item.id === payload.id)
+                : -1;
+
+            if (addIndex === -1)
+                state.cart.push({
+                    id: payload.id,
+                    count: payload.count || 1,
+                });
+            else
+                state.cart.splice(addIndex, 1, {
+                    id: payload.id,
+                    count: state.cart[addIndex].count + 1,
+                });
+
+            return {
+                ...state,
+            };
+
+        case "CART_REMOVE":
+            const removeIndex = state.cart.length
+                ? state.cart.findIndex((item) => item.id === payload.id)
+                : -1;
+
+            if (removeIndex === -1) return state;
+            else {
+                if (state.cart[removeIndex].count > 1)
+                    state.cart.splice(removeIndex, 1, {
+                        id: payload.id,
+                        count: state.cart[removeIndex].count - 1,
+                    });
+                else state.cart.splice(removeIndex, 1);
             }
 
-        
+            return {
+                ...state,
+            };
+
+        case "CART_RESET":
+            return {
+                ...state,
+                cart: [],
+            };
+
         default:
             return state;
     }

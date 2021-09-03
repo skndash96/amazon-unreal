@@ -9,8 +9,8 @@
     scroll-snap-type: x mandatory;
     backdrop-filter: blur(5px);
     [class~="card"] {
-        height: 14rem;
-        width: 10rem;
+        height: 18rem;
+        width: 14rem;
         flex-shrink: 0;
         border-radius: 0.5rem;
         overflow: hidden;
@@ -28,10 +28,12 @@
         }
     }
     [class~="disclaimer"] {
+        position: relative;
         background: $contrast;
         display: grid;
         place-items: center;
         text-align: center;
+        padding: 1rem;
         button {
             font-size: 1.1rem;
             font-weight: 700;

@@ -1,8 +1,8 @@
 import styles from "./productInfo.module.scss";
 import Image from "next/image";
 import { ImStarHalf, ImStarFull } from "react-icons/im";
-import { useSelector, useDispatch } from 'react-redux'
-import { HiSparkles } from 'react-icons/hi'
+import { useSelector, useDispatch } from "react-redux";
+import { HiSparkles } from "react-icons/hi";
 
 export default function ProductInfo({
     title,
@@ -11,32 +11,41 @@ export default function ProductInfo({
     image,
     category,
     price,
-    id
+    id,
 }) {
-    const { wishlist, cart } = useSelector(state => state)
-    const dispatch = useDispatch()
-    
-    const handleAddCart = () => {
+    const { wishlist, cart } = useSelector((state) => state);
+    const dispatch = useDispatch();
+
+    const isInCart = cart.find((item) => item.id === id);
+    const isInWishlist = wishlist.find((itemId) => itemId === id);
+
+    const handleAddCart = (remove) => {
         dispatch({
-            type: cart.includes(id) ? 'CART_REMOVE' : 'CART_ADD',
+            type: remove ? "CART_REMOVE" : "CART_ADD",
             payload: {
-                id: id
-            }
-        })
-    }
-    const handleAddWish = () => {
+                id: id,
+            },
+        });
+    };
+
+    const handleAddWish = (remove) => {
         dispatch({
-            type: wishlist.includes(id) ? 'WISHLIST_REMOVE' : 'WISHLIST_ADD',
+            type: remove ? "WISHLIST_REMOVE" : "WISHLIST_ADD",
             payload: {
-                id: id
-            }
-        })
-    }
-    
+                id: id,
+            },
+        });
+    };
+
     return (
         <div className={"container " + styles.page}>
             <div className="product-pic">
-                <Image alt={title} objectFit="contain" layout="fill" src={image} />
+                <Image
+                    alt={title}
+                    objectFit="contain"
+                    layout="fill"
+                    src={image}
+                />
             </div>
 
             <div className="product-title">
@@ -58,10 +67,28 @@ export default function ProductInfo({
             <h2 className="product-price">
                 ${price} <span> (includes GST & taxes) </span>
             </h2>
-            
+
             <div className="product-cta">
-                <button className={cart.includes(id) ? "danger" : ""} onClick={handleAddCart}> {cart.includes(id) ? 'Remove from Cart' : 'Add to Cart'} </button>
-                <button className={wishlist.includes(id) ? "danger" : ""} onClick={handleAddWish}> <HiSparkles /> </button>
+                {isInCart ? (
+                    <div className="cart-edit">
+                        <button onClick={() => handleAddCart()}> + </button>
+                        {isInCart.count}
+                        <button onClick={() => handleAddCart(true)}> - </button>
+                    </div>
+                ) : (
+                    <button onClick={() => handleAddCart()}>
+                        {" "}
+                        Add to Cart{" "}
+                    </button>
+                )}
+
+                <button
+                    className={isInWishlist ? "danger" : ""}
+                    onClick={() => handleAddWish(isInWishlist ? true : false)}
+                >
+                    {" "}
+                    <HiSparkles />{" "}
+                </button>
             </div>
 
             <p className="product-info">{description.split("|")[0]}</p>

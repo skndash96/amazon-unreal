@@ -39,20 +39,33 @@ export default function Navigation() {
 
             <ul>
                 <li>
-                    {" "}
-                    <FaAmazon /> Amazon{" "}
+                    <Link href="/">
+                        <div>
+                            <FaAmazon /> Amazon
+                        </div>
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/cart">
+                        <div>
+                            <RiCart /> Cart
+                        </div>
+                    </Link>
                 </li>
                 <li>
                     {" "}
-                    <RiCart /> Cart{" "}
+                    <Link href="/wishlist">
+                        <div>
+                            <HiSparkles /> Wish
+                        </div>
+                    </Link>
                 </li>
                 <li>
-                    {" "}
-                    <HiSparkles /> Wish{" "}
-                </li>
-                <li>
-                    {" "}
-                    <FaUser /> Author{" "}
+                    <div>
+                        <a href="https://github.com/skndash96/amazon-unreal">
+                            <FaUser /> Author
+                        </a>
+                    </div>
                 </li>
                 <li className="depts">
                     <h3> Departments </h3>

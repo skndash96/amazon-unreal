@@ -13,7 +13,7 @@ export default function ProductPage({ id }) {
     });
 
     useEffect(() => {
-        const data = products().find((item) => item.id === parseInt(id));
+        const data = products(id);
 
         setTimeout(() => {
             if (!data)

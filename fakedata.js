@@ -47,15 +47,17 @@ export const heroCategories = [
     },
 ];
 
-export const products = () =>
-    productsData.slice().reduce((shuffled, item, index) => {
-        shuffled.splice(
-            Math.floor(Math.random() * productsData.length),
-            0,
-            item
-        );
-        return shuffled;
-    }, []);
+export const products = (id) =>
+    id
+        ? productsData.find((item) => item.id === parseInt(id))
+        : productsData.slice().reduce((shuffled, item, index) => {
+              shuffled.splice(
+                  Math.floor(Math.random() * productsData.length),
+                  0,
+                  item
+              );
+              return shuffled;
+          }, []);
 
 const productsData = [
     {

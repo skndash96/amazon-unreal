@@ -23,12 +23,14 @@
                 position: absolute;
                 bottom: -10%;
                 right: -10%;
+                display: grid;
+                place-items: center;
                 background-color: $contrast;
-                color: $primary;
-                width: .85rem;
-                height: .85rem;
-                padding: .1rem;
-                font-size: .65rem;
+                color: $tertiary;
+                width: 0.85rem;
+                height: 0.85rem;
+                padding: 0.1rem;
+                font-size: 0.65rem;
                 border-radius: 50%;
             }
         }
@@ -40,10 +42,6 @@
             outline: none;
             border: none;
             font-size: 1.1rem;
-        }
-
-        input::placeholder {
-            font-size: 0.75rem;
         }
 
         button {
@@ -63,17 +61,18 @@
                 width: 80%;
                 padding: 0.5rem 1rem;
                 border-radius: 0.65rem 0 0 0.65rem;
-                margin: 0;
+                &::placeholder {
+                    font-size: 0.75rem;
+                }
             }
             div {
-                padding: 0.65rem;
+                padding: 0.5rem;
                 width: 20%;
                 max-width: 5rem;
                 display: grid;
                 place-items: center;
                 color: darken($tertiary, 10%);
                 background-color: $contrast;
-                transform: translateX(-2px);
                 border-radius: 0 0.5rem 0.5rem 0;
             }
         }
