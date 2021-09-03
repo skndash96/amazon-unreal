@@ -18,22 +18,6 @@
         button:nth-child(2) {
             margin: 0 auto 0 0.5rem;
         }
-        button:last-child {
-            span {
-                position: absolute;
-                bottom: -10%;
-                right: -10%;
-                display: grid;
-                place-items: center;
-                background-color: $contrast;
-                color: $tertiary;
-                width: 0.85rem;
-                height: 0.85rem;
-                padding: 0.1rem;
-                font-size: 0.65rem;
-                border-radius: 50%;
-            }
-        }
 
         button,
         input {
@@ -62,18 +46,38 @@
                 padding: 0.5rem 1rem;
                 border-radius: 0.65rem 0 0 0.65rem;
                 &::placeholder {
-                    font-size: 0.75rem;
+                    font-size: 0.85rem;
                 }
             }
             div {
-                padding: 0.5rem;
+                padding: 0.65rem;
                 width: 20%;
                 max-width: 5rem;
-                display: grid;
-                place-items: center;
                 color: darken($tertiary, 10%);
                 background-color: $contrast;
                 border-radius: 0 0.5rem 0.5rem 0;
+                svg {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+        }
+        
+        div:last-child {
+            display: flex;
+            button > span {
+                position: absolute;
+                bottom: -10%;
+                right: -10%;
+                display: grid;
+                place-items: center;
+                background-color: $contrast;
+                color: $tertiary;
+                width: 0.85rem;
+                height: 0.85rem;
+                padding: 0.1rem;
+                font-size: 0.65rem;
+                border-radius: 50%;
             }
         }
     }

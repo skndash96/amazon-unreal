@@ -5,6 +5,9 @@ import {
     RiMenuUnfoldFill as RiMenuFoldFill,
     RiMenuFoldFill as RiMenuUnfoldFill,
 } from "react-icons/ri";
+import {
+    HiSparkles
+} from "react-icons/hi"
 import Link from "next/link";
 import { categories } from "../fakedata";
 import Navigation from "./navigation";
@@ -43,6 +46,11 @@ export default function Header() {
                     </div>
 
                     <div>
+                        <Link href="/wishlist">
+                            <button>
+                                <HiSparkles />
+                            </button>
+                        </Link>
                         <Link href="/cart">
                             <button>
                                 <RiShoppingCartLine />

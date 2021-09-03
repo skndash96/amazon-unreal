@@ -4,66 +4,71 @@
 .navigation {
     position: fixed;
     z-index: 999;
+    right: 0;
     left: 0;
     top: 0;
     bottom: 0;
-    background-color: darken($tertiary, 10%);
-    color: $primary;
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     transition: all 0.2s ease;
     transform: translateX(-100%);
-    button {
-        margin-top: 0.5rem;
-        font-size: 1.5rem;
+    [class~=menu] {
+        width: 50vw;
+        height: 100%;
+        background-color: darken($tertiary, 10%);
         color: $primary;
-        border: none;
-        outline: none;
-        background: none;
-        align-self: flex-start;
-        &[class~="ripple"] {
-            @include ripple;
-        }
-    }
-    ul {
-        svg {
-            margin-right: 0.5rem;
-        }
-        li {
-            margin: 0.65rem 0;
-            &:hover {
-                color: $contrast;
+        padding: 0 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        button {
+            margin-top: 0.5rem;
+            font-size: 1.5rem;
+            color: $primary;
+            border: none;
+            outline: none;
+            background: none;
+            align-self: flex-start;
+            &[class~="ripple"] {
+                @include ripple;
             }
-            &:last-of-type {
+        }
+        ul {
+            svg {
+                margin-right: 0.5rem;
+            }
+            li {
+                margin: 0.65rem 0;
                 &:hover {
-                    color: currentColor;
+                    color: $contrast;
+                }
+                &:last-of-type {
+                    &:hover {
+                        color: currentColor;
+                    }
                 }
             }
-        }
-        li[class~="depts"] {
-            margin-top: 1rem;
-            ul {
-                @media (max-height: 452px) {
-                    font-size: 0.8rem;
-                    display: grid;
-                    grid-template-columns: 1fr 1fr 1fr;
-                    grid-template-rows: 1fr 1fr;
-                    svg {
-                        display: none;
+            li[class~="depts"] {
+                margin-top: 1rem;
+                ul {
+                    @media (max-height: 452px) {
+                        font-size: 0.8rem;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr;
+                        grid-template-rows: 1fr 1fr;
+                        svg {
+                            display: none;
+                        }
                     }
-                }
-                li {
-                    font-size: 0.9rem;
-                    margin-left: 1rem;
-                    &:hover {
-                        color: $contrast;
-                    }
-                    a {
-                        color: currentColor;
-                        text-decoration: none;
+                    li {
+                        font-size: 0.9rem;
+                        margin-left: 1rem;
+                        &:hover {
+                            color: $contrast;
+                        }
+                        a {
+                            color: currentColor;
+                            text-decoration: none;
+                        }
                     }
                 }
             }

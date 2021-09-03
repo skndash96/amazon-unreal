@@ -3,10 +3,10 @@ import styles from "./footer.module.scss";
 export default function Footer() {
     return (
         <div className={styles.footer}>
-            <h4>
+            <span>
                 {" "}
                 <a href="#top"> Go to Top </a>{" "}
-            </h4>
+            </span>
 
             <ul>
                 <li> Find a Gift </li>

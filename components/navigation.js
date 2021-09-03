@@ -14,12 +14,22 @@ import {
     RiMenuFoldFill as RiMenuUnfoldFill,
 } from "react-icons/ri";
 import { useSelector, useDispatch } from "react-redux";
+import { useRef } from 'react'
 import Link from "next/link";
 
 export default function Navigation() {
     const dispatch = useDispatch();
     const { navIsOpen } = useSelector((state) => state);
 
+    const menuRef = useRef()
+    
+    const handleClick = (event) => {
+        if (event.clientX > menuRef.current.clientWidth) {
+            event.stopPropagation()
+            closeNav()
+        }
+    }
+    
     const closeNav = () => {
         dispatch({
             type: "CLOSE_NAV",
@@ -27,12 +37,8 @@ export default function Navigation() {
     };
 
     return (
-        <div
-            id="navigation"
-            className={`container ${styles.navigation} ${
-                navIsOpen ? styles.active : ""
-            }`}
-        >
+        <div onClick={handleClick} className={`container ${styles.navigation} ${navIsOpen ? styles.active : ""}`}>
+        <div ref={menuRef} className="menu">
             <button className="ripple" onClick={closeNav}>
                 <RiMenuUnfoldFill />
             </button>
@@ -62,7 +68,7 @@ export default function Navigation() {
                 </li>
                 <li>
                     <div>
-                        <a href="https://github.com/skndash96/amazon-unreal">
+                        <a target="_blank" href="https://github.com/skndash96/amazon-unreal">
                             <FaUser /> Author
                         </a>
                     </div>
@@ -102,6 +108,7 @@ export default function Navigation() {
                     </ul>
                 </li>
             </ul>
+        </div>
         </div>
     );
 }
