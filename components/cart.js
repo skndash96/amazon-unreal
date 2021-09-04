@@ -45,12 +45,12 @@ export default function CartPage() {
                                 Total Price:
                                 <span>
                                     <span>$</span>
-                                    {data.reduce(
+                                    {(data.reduce(
                                         (cost, item, index) =>
                                             (cost + item.price) *
                                                 cart[index]?.count || 0,
                                         0
-                                    )}
+                                    )).toFixed(2)}
                                 </span>
                             </li>
                         </ul>

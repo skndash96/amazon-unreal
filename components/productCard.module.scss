@@ -23,6 +23,7 @@
             color: $tertiary;
             background: none;
             border: none;
+            outline: none;
         }
         div {
             padding: 0.5rem;
@@ -84,7 +85,7 @@
 
 .minimal {
     display: grid;
-    grid-template-columns: 3fr 2fr 2fr;
+    grid-template-columns: 4fr 2fr 2fr;
     gap: 1rem;
     [class~="cart-options"] {
         padding: 0;
@@ -98,6 +99,10 @@
         div {
             margin-top: 0.5rem;
         }
+    }
+    [class~="product-text"] {
+        font-weight: 500;
+        font-size: 1rem;
     }
     [class~="product-text"] p {
         display: none;
