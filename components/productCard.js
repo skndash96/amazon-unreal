@@ -18,7 +18,8 @@ export default function Product({
     id,
     isPrior,
     isWishlist,
-    isCart
+    isCart,
+    isMinimal
 }) {
     const dispatch = useDispatch();
     const router = useRouter()
@@ -43,7 +44,7 @@ export default function Product({
     };
 
     return (
-            <div className={styles.product}>
+            <div className={`${styles.product} ${isMinimal ? styles.minimal : ""}`}>
                 {isCart && (
                     <div onClick={e => e.stopPropagation()} className="cart-options">
                         <div className={isOptionsActive ? "active" : ""}>
@@ -71,12 +72,14 @@ export default function Product({
                 </div>
             </Link>
 
+            <Link href={`/product/${id}`}>
                 <div className="product-text">
                     <h4>{title.split(/ +/).slice(0, 7).join(" ") + ".."}</h4>
                     <p>
                         {description.split(/ +/).slice(0, 10).join(" ") + "..."}
                     </p>
                 </div>
+            </Link>
 
                 <div className="product-price">
                     <h3> $ {price} </h3>

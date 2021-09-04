@@ -22,7 +22,38 @@ export default function CartPage() {
         <div className={"container " + styles.cart}>
             {!data
             ? <div className="loading">...</div>
-            : <Products products={data} title="Cart" isCart={true} />
+            : <div>
+                <div className="cart-details">
+                    <h2> Billing </h2>
+                    
+                    <ul>
+                        {data.map((item, index) => 
+                            <li>
+                                {item.title.split(/ +/).slice(0, 3).join(' ') + '..'}
+                                <span>
+                                    {cart[index]?.count || 0}
+                                </span>
+                            </li>
+                        )}
+                        <li className="total">
+                            Total Items:
+                            <span>
+                                {cart.length}
+                            </span>
+                        </li>
+                        <li className="total">
+                            Total Price:
+                            <span>
+                                <span>$</span>{data.reduce(
+                                    (cost, item, index) => (cost + item.price) * cart[index]?.count || 0, 0)
+                                }
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <Products products={data} title="Cart" isCart={true} isMinimal={true} />
+            </div>
             }
         </div>
     );

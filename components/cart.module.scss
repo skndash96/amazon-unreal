@@ -2,4 +2,32 @@
 
 .cart {
     width: 100%;
+    [class~="cart-details"] {
+        margin: 1rem;
+        padding: 1rem;
+        box-shadow: 5px 5px 20px rgba($secondary, .2);
+        border-radius: .5rem;
+        ul {
+            margin: 1rem 2rem 0 0;
+            li {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                span {
+                    min-width: 2rem;
+                    text-align: right;
+                }
+                &[class~="total"] {
+                    margin-top: 1rem;
+                    font-weight: 700;
+                    span span {
+                        margin-right: .5rem;
+                    }
+                }
+                &[class~="total"]:last-child {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
 }
