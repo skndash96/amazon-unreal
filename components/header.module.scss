@@ -12,6 +12,10 @@
         justify-content: space-between;
         padding: 0 .5rem;
 
+        button > svg {
+            font-size: 1.25rem;
+        }
+
         button,
         input {
             background: none;
