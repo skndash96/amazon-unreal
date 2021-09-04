@@ -1,14 +1,14 @@
 import Cart from "../components/cart";
-import Products from '../components/products'
+import Products from "../components/products";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import { products } from '../fakedata'
+import { products } from "../fakedata";
 
 export default function CartPage() {
     return (
         <div className="container">
             <Header />
-           
+
             <main>
                 <Cart />
                 <Products
@@ -16,7 +16,7 @@ export default function CartPage() {
                     title="You might like"
                 />
             </main>
-           
+
             <Footer />
         </div>
     );

@@ -6,7 +6,7 @@ import { RiDeleteBin7Fill, RiShoppingCartLine as RiCart } from "react-icons/ri";
 import { HiSparkles, HiDotsVertical as HiMenu } from "react-icons/hi";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 export default function Product({
     title,
@@ -19,12 +19,14 @@ export default function Product({
     isPrior,
     isWishlist,
     isCart,
-    isMinimal
+    isMinimal,
 }) {
     const dispatch = useDispatch();
-    const router = useRouter()
-    
-    const cartItem = useSelector(state => state.cart).find(item => item.id === id)
+    const router = useRouter();
+
+    const cartItem = useSelector((state) => state.cart).find(
+        (item) => item.id === id
+    );
 
     const [isOptionsActive, setIsOptionsActive] = useState(false);
 
@@ -33,8 +35,8 @@ export default function Product({
     };
 
     const handleAddCart = (remove) => {
-        if (remove && !cartItem?.count) router.push('/cart')
-        
+        if (remove && !cartItem?.count) router.push("/cart");
+
         dispatch({
             type: remove ? "CART_REMOVE" : "CART_ADD",
             payload: {
@@ -44,21 +46,28 @@ export default function Product({
     };
 
     return (
-            <div className={`${styles.product} ${isMinimal ? styles.minimal : ""}`}>
-                {isCart && (
-                    <div onClick={e => e.stopPropagation()} className="cart-options">
-                        <div className={isOptionsActive ? "active" : ""}>
-                            <button onClick={() => handleAddCart()}> + </button>
-                            <span> {cartItem?.count || 0} </span>
-                            <button onClick={() => handleAddCart(true)}>
-                                {cartItem?.count > 1 ? "-" : <RiDeleteBin7Fill className="danger" />}
-                            </button>
-                        </div>
-                        <button onClick={toggleOptions}>
-                            <HiMenu />
+        <div className={`${styles.product} ${isMinimal ? styles.minimal : ""}`}>
+            {isCart && (
+                <div
+                    onClick={(e) => e.stopPropagation()}
+                    className="cart-options"
+                >
+                    <div className={isOptionsActive ? "active" : ""}>
+                        <button onClick={() => handleAddCart()}> + </button>
+                        <span> {cartItem?.count || 0} </span>
+                        <button onClick={() => handleAddCart(true)}>
+                            {cartItem?.count > 1 ? (
+                                "-"
+                            ) : (
+                                <RiDeleteBin7Fill className="danger" />
+                            )}
                         </button>
                     </div>
-                )}
+                    <button onClick={toggleOptions}>
+                        <HiMenu />
+                    </button>
+                </div>
+            )}
 
             <Link href={`/product/${id}`}>
                 <div className="product-pic">
@@ -81,20 +90,20 @@ export default function Product({
                 </div>
             </Link>
 
-                <div className="product-price">
-                    <h3> $ {price} </h3>
-                </div>
+            <div className="product-price">
+                <h3> $ {price} </h3>
+            </div>
 
-                <div className="product-rating">
-                    <span>
-                        {new Array(parseInt(rating.rate)).fill(<ImStarFull />)}
-                        {rating.rate - parseInt(rating.rate) > 0.2 && (
-                            <ImStarHalf />
-                        )}
-                    </span>
-                    <span>{rating.rate}</span>
-                    <span>({rating.count})</span>
-                </div>
+            <div className="product-rating">
+                <span>
+                    {new Array(parseInt(rating.rate)).fill(<ImStarFull />)}
+                    {rating.rate - parseInt(rating.rate) > 0.2 && (
+                        <ImStarHalf />
+                    )}
+                </span>
+                <span>{rating.rate}</span>
+                <span>({rating.count})</span>
+            </div>
         </div>
     );
 }

@@ -64,7 +64,6 @@ export default function Navigation() {
                         </Link>
                     </li>
                     <li>
-                        
                         <Link href="/wishlist">
                             <div>
                                 <HiSparkles /> Wish
@@ -86,43 +85,27 @@ export default function Navigation() {
                         <h3> Departments </h3>
                         <ul>
                             <li>
-                                
                                 <FaHouse />
                                 <Link href="/households"> Household </Link>
                             </li>
                             <li>
-                                
                                 <FaTech />
-                                <Link href="/electronics">
-                                    Electronics
-                                </Link>
+                                <Link href="/electronics">Electronics</Link>
                             </li>
                             <li>
-                                
                                 <FaShop />
                                 <Link href="/groceries"> Groceries </Link>
                             </li>
                             <li>
-                                
                                 <SiWire />
-                                <Link href="/accessories">
-                                    Accessories
-                                </Link>
+                                <Link href="/accessories">Accessories</Link>
                             </li>
                             <li>
-                                
-                                <FaBook /> <Link href="/books">
-                                    
-                                    Books
-                                </Link>
+                                <FaBook /> <Link href="/books">Books</Link>
                             </li>
                             <li>
-                                
                                 <HiPencil />
-                                <Link href="/stationaries">
-                                    
-                                    Stationary
-                                </Link>
+                                <Link href="/stationaries">Stationary</Link>
                             </li>
                         </ul>
                     </li>

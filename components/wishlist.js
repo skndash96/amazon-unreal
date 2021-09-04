@@ -15,14 +15,15 @@ export default function Wishlist() {
 
     return (
         <div className="container">
-            {!data
-            ? <div className={!data ? "loading" : ""}>...</div>
-            : <Products
-                title="Your wishlist"
-                products={data}
-                isWishlist={true}
-            />
-            }
+            {!data ? (
+                <div className={!data ? "loading" : ""}>...</div>
+            ) : (
+                <Products
+                    title="Your wishlist"
+                    products={data}
+                    isWishlist={true}
+                />
+            )}
         </div>
     );
 }

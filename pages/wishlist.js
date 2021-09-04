@@ -1,14 +1,14 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Wishlist from "../components/wishlist";
-import { products } from '../fakedata'
-import Products from '../components/products'
+import { products } from "../fakedata";
+import Products from "../components/products";
 
 export default function WishlistPage() {
     return (
         <div className="container">
             <Header />
-            
+
             <main>
                 <Wishlist />
                 <Products
@@ -16,7 +16,7 @@ export default function WishlistPage() {
                     products={products().slice(0, 5)}
                 />
             </main>
-            
+
             <Footer />
         </div>
     );
