@@ -1,4 +1,5 @@
 @import "../utils/variables";
+@import "../utils/ripple.scss";
 
 .product {
     padding: 1rem 1rem 0.5rem;
@@ -11,6 +12,58 @@
     align-items: center;
     position: relative;
     gap: 0.5rem;
+    [class~="cart-options"] {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 1rem;
+        display: flex;
+        gap: .5rem;
+        & > button {
+            color: $tertiary;
+            background: none;
+            border: none;
+        }
+        div {
+            padding: 0.5rem;
+            background: $tertiary;
+            border-radius: 0.5rem;
+            color: $primary;
+            display: flex;
+            gap: 0;
+            visibility: hidden;
+            &[class~="active"] {
+                visibility: visible;
+            }
+            span {
+                margin: 0 0.5rem;
+            }
+            button {
+                color: currentColor;
+                border: none;
+                background: none;
+                width: 1rem;
+                height: 1rem;
+                border-radius: 50%;
+                &:hover {
+                    background: rgba($primary, .2);
+                }
+                &:first-child {
+                    color: lightgreen;
+                }
+                &:last-child {
+                    color: indianred;
+                }
+                [class~="danger"] {
+                    color: indianred;
+                }
+            }
+        }
+
+        & ~ [class~="product-pic"] {
+            margin: 2rem auto 0 auto;
+        }
+    }
     [class~="product-pic"] {
         position: relative;
         width: 100%;
@@ -18,9 +71,6 @@
         margin: 0 auto;
         display: grid;
         place-items: center;
-        &:hover {
-            transform: scale(95%);
-        }
     }
     [class~="product-price"] {
         align-self: center;

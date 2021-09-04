@@ -11,10 +11,11 @@
         height: 0.5rem;
         border-radius: 50%;
         background-color: rgba(darken($primary, 20%), 0.2);
+        z-index: 999;
     }
     &:hover {
         &::after {
-            transform: translate(-50%, -75%) scale(4);
+            transform: translate(-50%, -50%) scale(4);
         }
     }
 }

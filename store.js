@@ -68,7 +68,7 @@ const reducer = (state = initialState.session, { type, payload }) => {
                     id: payload.id,
                     count: state.cart[addIndex].count + 1,
                 });
-
+            
             return {
                 ...state,
             };

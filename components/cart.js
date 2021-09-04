@@ -13,7 +13,11 @@ export default function CartPage() {
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        setData(cart.slice().map(({ id }) => products(id)));
+        setData(
+            cart.slice().map((item) => ({
+                ...products(item.id)
+            }))
+        );
     }, [cart.length]);
 
     return (
@@ -23,7 +27,13 @@ export default function CartPage() {
             {!data ? (
                 <div className="loading">...</div>
             ) : (
-                <Products products={data} title="Cart" isCart={true} />
+                <>
+                    <Products products={data} title="Cart" isCart={true} />
+                    <Products
+                        products={products().slice(0, 5)}
+                        title="You might like"
+                    />
+                </>
             )}
 
             <Footer />
