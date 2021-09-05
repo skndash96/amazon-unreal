@@ -54,6 +54,12 @@ a {
     text-decoration: none;
 }
 
+button {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
 ::selection {
     background: indianred;
     color: white;

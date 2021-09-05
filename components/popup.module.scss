@@ -1,0 +1,57 @@
+@import '../utils/variables';
+@import '../utils/ripple.scss';
+
+.popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba($secondary, .2);
+    display: grid;
+    place-items: center;
+    z-index: 99999;
+    & [class~='pop'] {
+        position: relative;
+        background: $primary;
+        box-shadow: 5px 5px 20px rgba($secondary, .2);
+        padding: 1rem;
+        margin: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: .5rem;
+        gap: 1rem;
+        [class~="close"] {
+            @include ripple;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            outline: none;
+            border: none;
+            svg {
+                transform: rotate(45deg);
+            }
+        }
+        [class~="title"] {
+            color: $secondary;
+        }
+        [class~="description"] {
+            color: $tertiary;
+            text-align: center;
+            span {
+                font-weight: 600;
+            }
+        }
+        [class~="cta"] {
+            background: $contrast;
+            color: $primary;
+            padding: .5rem 1rem;
+            box-shadow: 2px 2px 5px rgba($secondary, .2);
+            border-radius: .5rem;
+            font-weight: 600;
+        }
+    }
+}
