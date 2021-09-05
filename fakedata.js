@@ -49,17 +49,17 @@ export const heroCategories = [
 
 export const products = (id) =>
     id
-        ? productsData.find((item) => item.id === parseInt(id))
-        : productsData.slice().reduce((shuffled, item, index) => {
+        ? unmixedProducts.find((item) => item.id === parseInt(id))
+        : unmixedProducts.slice().reduce((shuffled, item, index) => {
               shuffled.splice(
-                  Math.floor(Math.random() * productsData.length),
+                  Math.floor(Math.random() * unmixedProducts.length),
                   0,
                   item
               );
               return shuffled;
           }, []);
 
-const productsData = [
+export const unmixedProducts = [
     {
         id: 1,
         title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",

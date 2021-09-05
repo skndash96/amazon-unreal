@@ -11,7 +11,6 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 0.5rem;
-
         button > svg {
             font-size: 1.25rem;
         }
@@ -39,6 +38,7 @@
             grid-template-columns: 4fr 1fr;
             max-width: 20rem;
             margin: 0 1rem;
+            position: relative;
             & > * {
                 height: 100%;
                 padding: 0.5rem;
@@ -91,14 +91,12 @@
             max-width: 100%;
             overflow-x: scroll;
             margin: 0.75rem 0 0.5rem 0;
-            scroll-snap-type: x mandatory;
             a {
                 color: currentColor;
                 text-decoration: none;
                 font-size: 1rem;
             }
             li {
-                scroll-snap-align: center;
                 margin: 0 0.5rem;
                 flex-shrink: 0;
                 background-color: darken($tertiary, 10%);
@@ -138,4 +136,12 @@
             }
         }
     }
+}
+
+.results {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 4rem;
+    z-index: 9999;
 }

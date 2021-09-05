@@ -81,7 +81,8 @@ export default function ProductInfo({
     
     useEffect(() => {
         gsap.from('#productPic', {
-            y: "-100%"
+            duration: 0.3,
+            scale: 0
         })
     }, [])
 

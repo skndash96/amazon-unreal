@@ -72,6 +72,10 @@
     }
     [class~="product-price"] {
         align-self: center;
+        display: flex;
+        span {
+            font-weight: bold;
+        }
     }
     [class~="product-rating"] {
         font-weight: 700;

@@ -5,6 +5,7 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     & > * {
         margin: 0.5rem 0;
     }
@@ -14,6 +15,7 @@
         height: 20rem;
         margin: 0;
         margin-bottom: 1rem;
+        transform-origin: bottom;
     }
     [class~="product-title"] {
         margin-top: 0;

@@ -11,6 +11,7 @@ import gsap from 'gsap'
 
 export default function Product({
     title,
+    titleLength,
     category,
     description,
     image,
@@ -96,7 +97,7 @@ export default function Product({
 
             <Link href={`/product/${id}`}>
                 <div className="product-text">
-                    <h4>{title.split(/ +/).slice(0, 7).join(" ") + ".."}</h4>
+                    <h4>{title.split(/ +/).slice(0, titleLength ? titleLength : 7).join(" ") + ".."}</h4>
                     <p>
                         {description.split(/ +/).slice(0, 10).join(" ") + "..."}
                     </p>
@@ -104,7 +105,7 @@ export default function Product({
             </Link>
 
             <div className="product-price">
-                <h3> $ {price} </h3>
+                <span> $ </span> <span> {price} </span>
             </div>
 
             <div className="product-rating">

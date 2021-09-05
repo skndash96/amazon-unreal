@@ -20,7 +20,9 @@ body {
 .container,
 .wrapper {
     max-width: 100%;
-    overflow: hidden;
+}
+.wrapper {
+    position: relative;
 }
 
 .no-scrollbar {
@@ -50,4 +52,9 @@ li {
 a {
     color: currentColor;
     text-decoration: none;
+}
+
+::selection {
+    background: indianred;
+    color: white;
 }
