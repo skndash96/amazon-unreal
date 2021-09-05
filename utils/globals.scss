@@ -20,6 +20,7 @@ body {
 .container,
 .wrapper {
     max-width: 100%;
+    overflow: hidden;
 }
 
 .no-scrollbar {

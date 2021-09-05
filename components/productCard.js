@@ -6,7 +6,8 @@ import { RiDeleteBin7Fill, RiShoppingCartLine as RiCart } from "react-icons/ri";
 import { HiSparkles, HiDotsVertical as HiMenu } from "react-icons/hi";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useRouter } from "next/router";
+import { useRef } from "react";
+import gsap from 'gsap'
 
 export default function Product({
     title,
@@ -22,20 +23,32 @@ export default function Product({
     isMinimal,
 }) {
     const dispatch = useDispatch();
-    const router = useRouter();
-
+    
+    const cardRef = useRef()
+    
+    const [isOptionsActive, setIsOptionsActive] = useState(false);
+    
     const cartItem = useSelector((state) => state.cart).find(
         (item) => item.id === id
     );
-
-    const [isOptionsActive, setIsOptionsActive] = useState(false);
 
     const toggleOptions = () => {
         setIsOptionsActive((state) => !state);
     };
 
     const handleAddCart = (remove) => {
-        if (remove && !cartItem?.count) router.push("/cart");
+        if (remove && cartItem?.count === 1) {
+            gsap.to(cardRef.current, {
+                scale: 0,
+                onComplete: () => dispatch({
+                    type: "CART_REMOVE",
+                    payload: {
+                        id: id
+                    }
+                })
+            })
+            return
+        }
 
         dispatch({
             type: remove ? "CART_REMOVE" : "CART_ADD",
@@ -46,7 +59,7 @@ export default function Product({
     };
 
     return (
-        <div className={`${styles.product} ${isMinimal ? styles.minimal : ""}`}>
+        <div ref={cardRef} className={`${styles.product} ${isMinimal ? styles.minimal : ""}`}>
             {isCart && (
                 <div
                     onClick={(e) => e.stopPropagation()}

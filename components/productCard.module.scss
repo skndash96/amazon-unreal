@@ -24,6 +24,7 @@
             background: none;
             border: none;
             outline: none;
+            @include ripple;
         }
         div {
             padding: 0.5rem;
@@ -32,9 +33,11 @@
             color: $primary;
             display: flex;
             gap: 0;
-            visibility: hidden;
+            transform-origin: 100% 50%;
+            transition: all .2s ease;
+            transform: scale(0);
             &[class~="active"] {
-                visibility: visible;
+                transform: scale(1);
             }
             span {
                 margin: 0 0.5rem;

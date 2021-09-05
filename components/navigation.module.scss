@@ -11,7 +11,7 @@
     transition: all 0.2s ease;
     transform: translateX(-100%);
     [class~="menu"] {
-        width: 50vw;
+        width: 50vmin;
         height: 100%;
         background-color: darken($tertiary, 10%);
         color: $primary;

@@ -3,6 +3,8 @@ import Image from "next/image";
 import { ImStarHalf, ImStarFull } from "react-icons/im";
 import { useSelector, useDispatch } from "react-redux";
 import { HiSparkles } from "react-icons/hi";
+import gsap from 'gsap'
+import { useEffect } from 'react'
 
 export default function ProductInfo({
     title,
@@ -20,6 +22,43 @@ export default function ProductInfo({
     const isInWishlist = wishlist.find((itemId) => itemId === id);
 
     const handleAddCart = (remove) => {
+        if (!remove && !isInCart) {
+            gsap.to("#cartAdd", {
+                duration: 0.2,
+                scale: 0,
+                ease: "power3.easeIn",
+                onComplete: () => dispatch({
+                    type: 'CART_ADD',
+                    payload: {
+                        id: id
+                    }
+                })
+            })
+            gsap.from("#cartEdit", {
+                duration: 0.2,
+                opacity: 0
+            })
+            return
+        } else if (remove && isInCart.count === 1) {
+            gsap.to("#cartEdit", {
+                duration: 0.2,
+                scale: 0,
+                ease: "power3.easeIn",
+                onComplete: () => dispatch({
+                    type: 'CART_REMOVE',
+                    payload: {
+                        id: id
+                    }
+                })
+            })
+            gsap.from('#cartAdd', {
+                duration: 0.2,
+                opacity: 0
+            })
+            
+            return
+        }
+        
         dispatch({
             type: remove ? "CART_REMOVE" : "CART_ADD",
             payload: {
@@ -29,17 +68,26 @@ export default function ProductInfo({
     };
 
     const handleAddWish = (remove) => {
-        dispatch({
-            type: remove ? "WISHLIST_REMOVE" : "WISHLIST_ADD",
-            payload: {
-                id: id,
-            },
-        });
+        gsap.to("#wishEdit", {
+            rotate: isInWishlist ? "0" : "360deg",
+            onComplete: () => dispatch({
+                type: remove ? "WISHLIST_REMOVE" : "WISHLIST_ADD",
+                payload: {
+                    id: id,
+                },
+            })
+        })
     };
+    
+    useEffect(() => {
+        gsap.from('#productPic', {
+            y: "-100%"
+        })
+    }, [])
 
     return (
         <div className={"container " + styles.page}>
-            <div className="product-pic">
+            <div id="productPic" className="product-pic">
                 <Image
                     alt={title}
                     objectFit="contain"
@@ -70,15 +118,14 @@ export default function ProductInfo({
 
             <div className="product-cta">
                 {isInCart ? (
-                    <div className="cart-edit">
+                    <div id="cartEdit" className="cart-edit">
                         <button onClick={() => handleAddCart()}> + </button>
                         {isInCart.count}
                         <button onClick={() => handleAddCart(true)}> - </button>
                     </div>
                 ) : (
-                    <button onClick={() => handleAddCart()}>
-                        {" "}
-                        Add to Cart{" "}
+                    <button id="cartAdd" onClick={() => handleAddCart()}>
+                        Add to Cart
                     </button>
                 )}
 
@@ -87,7 +134,7 @@ export default function ProductInfo({
                     onClick={() => handleAddWish(isInWishlist ? true : false)}
                 >
                     {" "}
-                    <HiSparkles />{" "}
+                    <HiSparkles id="wishEdit"/>{" "}
                 </button>
             </div>
 
