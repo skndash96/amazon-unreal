@@ -45,6 +45,12 @@
     h2 {
         display: none;
     }
+    @media (min-width: 556px) {
+        grid-template-columns: 1fr;
+    }
+    @media (min-width: 992px) {
+        grid-template-columns: 1fr 1fr;
+    }
     [class~="product-pic"] {
         height: 2rem;
     }
