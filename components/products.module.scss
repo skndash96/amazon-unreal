@@ -35,8 +35,8 @@
 }
 
 .results {
-    max-width: 75%;
-    margin: 0 1rem 0 auto;
+    max-width: 90%;
+    margin: 0 auto;
     background: darken($primary, 5%);
     border-radius: .5rem;
     min-height: unset;
@@ -45,7 +45,6 @@
     h2 {
         display: none;
     }
-    grid-template-columns: 1fr !important;
     [class~="product-pic"] {
         height: 2rem;
     }
