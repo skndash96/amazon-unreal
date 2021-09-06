@@ -6,6 +6,7 @@ let store;
 
 const initialState = {
     navIsOpen: false,
+    popup: null,
     cart: [],
     wishlist: [],
 };
@@ -24,6 +25,16 @@ const reducer = (state = initialState.session, { type, payload }) => {
             return {
                 ...state,
                 navIsOpen: false,
+            };
+        case "POP_UP":
+            return {
+                ...state,
+                popup: payload.data
+            };
+        case "POP_DOWN":
+            return {
+                ...state,
+                popup: null
             };
 
         /*********

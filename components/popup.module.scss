@@ -1,6 +1,15 @@
 @import "../utils/variables";
 @import "../utils/ripple.scss";
 
+@keyframes zoom {
+    0% {
+        transform: scale(0)
+    }
+    100% {
+        transform: scale(1)
+    }
+}
+
 .popup {
     position: fixed;
     top: 0;
@@ -12,6 +21,7 @@
     place-items: center;
     z-index: 99999;
     & [class~="pop"] {
+        max-width: 25rem;
         position: relative;
         background: $primary;
         box-shadow: 5px 5px 20px rgba($secondary, 0.2);
@@ -22,6 +32,7 @@
         align-items: center;
         justify-content: center;
         border-radius: 0.5rem;
+        animation: zoom .2s ease-in 1;
         gap: 1rem;
         [class~="close"] {
             @include ripple;

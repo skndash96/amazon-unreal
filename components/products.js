@@ -22,7 +22,7 @@ export default function Products({
                 {products.length ? (
                     products.map((item, index) => {
                         return (
-                            <li key={item.id}>
+                            <li key={index}>
                                 <Card
                                     titleLength={titleLength}
                                     isWishlist={isWishlist}
@@ -36,7 +36,7 @@ export default function Products({
                     })
                 ) : (
                     <li>
-                        <span>Oops, there&apos;s nothing here.</span>
+                        <span>No matches.</span>
                     </li>
                 )}
             </ul>

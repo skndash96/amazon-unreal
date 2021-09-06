@@ -16,6 +16,9 @@ export default function App({ Component, pageProps }) {
     useEffect(() => {
         const load = () => {
             Nprogress.start();
+            store.dispatch({
+                type: 'CLOSE_NAV'
+            })
         };
         const unload = () => {
             setTimeout(() => Nprogress.done(), 500);

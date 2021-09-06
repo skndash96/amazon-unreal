@@ -131,7 +131,7 @@ export default function Header() {
                             titleLength={2}
                         />
                     ) : (
-                        <Products title="Oops" products={[]} />
+                        <Products isResults={true} title="Oops" products={[]} />
                     )}
                 </div>
             )}
