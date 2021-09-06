@@ -37,21 +37,12 @@ export default function CartPage() {
                     <button onClick={() => setPopup(false)} className="close">
                         <FaPlus />
                     </button>
-                    <h4 className="title">Become a StarGazer</h4>
+                    <h4 className="title">Order Recieved</h4>
                     <p className="description">
-                        A <span> star </span> for this site is worth more than{" "}
-                        <span> {parseInt(bill) || 0} bucks </span> and you can
-                        get your cart items for free!
+                        We tracked your IP address and location, and your order will be delivered within {Math.floor(Math.random() * 28) + Math.floor(Math.random() * 10)} hours.
                     </p>
-                    <button className="cta">
-                        <a
-                            href="https://github.com/skndash96/amazon-unreal"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            {" "}
-                            Do it!{" "}
-                        </a>
+                    <button className="cta" onClick={() => setPopup(false)}>
+                        Okay
                     </button>
                 </Popup>
             )}
