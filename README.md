@@ -1,6 +1,6 @@
-# Amazon Unreal - the better Amazon
+# Amazon Unreal
+### [✨ Live demo](https://amazon-unreal.vercel.app)
+
 This app is purely built for educational purposes!
 
-### [Live demo](https://amazon-unreal.vercel.app)
-
-If this repo helps/attracts you, make sure to become a **stargazer**
+If this repo helps/attracts you, make sure to become a **🌠 stargazer**
