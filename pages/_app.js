@@ -3,6 +3,7 @@ import { useStore } from "../store";
 import "../utils/globals.scss";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import Head from "next/head";
 import Nprogress from "nprogress";
 import "nprogress/nprogress.css";
 
@@ -33,6 +34,19 @@ export default function App({ Component, pageProps }) {
 
     return (
         <Provider store={store}>
+            <Head>
+                <title> Amazon Unreal </title>
+                <link rel="shortcut icon" href="/favicon.ico" />
+                <meta
+                    name="keywords"
+                    content="amazon, amazon clone, react clone"
+                />
+                <meta
+                    name="description"
+                    content="The better amazon built with Reactjs."
+                />
+                <meta name="author" content="Dash Skndash" />
+            </Head>
             <Component {...pageProps} />
         </Provider>
     );

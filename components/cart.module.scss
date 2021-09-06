@@ -34,8 +34,8 @@
         }
         button {
             background: $contrast;
-            border-radius: .5rem;
-            padding: .5rem 1rem;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
             color: $primary;
             margin: 1rem 1rem 0 auto;
             &[class~="disabled"] {

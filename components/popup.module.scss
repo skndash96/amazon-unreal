@@ -1,5 +1,5 @@
-@import '../utils/variables';
-@import '../utils/ripple.scss';
+@import "../utils/variables";
+@import "../utils/ripple.scss";
 
 .popup {
     position: fixed;
@@ -7,21 +7,21 @@
     bottom: 0;
     right: 0;
     left: 0;
-    background: rgba($secondary, .2);
+    background: rgba($secondary, 0.2);
     display: grid;
     place-items: center;
     z-index: 99999;
-    & [class~='pop'] {
+    & [class~="pop"] {
         position: relative;
         background: $primary;
-        box-shadow: 5px 5px 20px rgba($secondary, .2);
+        box-shadow: 5px 5px 20px rgba($secondary, 0.2);
         padding: 1rem;
         margin: 0 1rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border-radius: .5rem;
+        border-radius: 0.5rem;
         gap: 1rem;
         [class~="close"] {
             @include ripple;
@@ -48,9 +48,9 @@
         [class~="cta"] {
             background: $contrast;
             color: $primary;
-            padding: .5rem 1rem;
-            box-shadow: 2px 2px 5px rgba($secondary, .2);
-            border-radius: .5rem;
+            padding: 0.5rem 1rem;
+            box-shadow: 2px 2px 5px rgba($secondary, 0.2);
+            border-radius: 0.5rem;
             font-weight: 600;
         }
     }

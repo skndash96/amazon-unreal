@@ -8,10 +8,14 @@ export default function Products({
     isMinimal,
     isCart,
     isWishlist,
-    isResults
+    isResults,
 }) {
     return (
-        <div className={`container ${isResults ? styles.results : ""} ${styles.products}`}>
+        <div
+            className={`container ${isResults ? styles.results : ""} ${
+                styles.products
+            }`}
+        >
             <h2> {title} </h2>
 
             <ul>

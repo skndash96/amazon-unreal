@@ -7,7 +7,7 @@ import { HiSparkles, HiDotsVertical as HiMenu } from "react-icons/hi";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useRef } from "react";
-import gsap from 'gsap'
+import gsap from "gsap";
 
 export default function Product({
     title,
@@ -24,11 +24,11 @@ export default function Product({
     isMinimal,
 }) {
     const dispatch = useDispatch();
-    
-    const cardRef = useRef()
-    
+
+    const cardRef = useRef();
+
     const [isOptionsActive, setIsOptionsActive] = useState(false);
-    
+
     const cartItem = useSelector((state) => state.cart).find(
         (item) => item.id === id
     );
@@ -41,14 +41,15 @@ export default function Product({
         if (remove && cartItem?.count === 1) {
             gsap.to(cardRef.current, {
                 scale: 0,
-                onComplete: () => dispatch({
-                    type: "CART_REMOVE",
-                    payload: {
-                        id: id
-                    }
-                })
-            })
-            return
+                onComplete: () =>
+                    dispatch({
+                        type: "CART_REMOVE",
+                        payload: {
+                            id: id,
+                        },
+                    }),
+            });
+            return;
         }
 
         dispatch({
@@ -60,7 +61,10 @@ export default function Product({
     };
 
     return (
-        <div ref={cardRef} className={`${styles.product} ${isMinimal ? styles.minimal : ""}`}>
+        <div
+            ref={cardRef}
+            className={`${styles.product} ${isMinimal ? styles.minimal : ""}`}
+        >
             {isCart && (
                 <div
                     onClick={(e) => e.stopPropagation()}
@@ -97,7 +101,12 @@ export default function Product({
 
             <Link href={`/product/${id}`}>
                 <div className="product-text">
-                    <h4>{title.split(/ +/).slice(0, titleLength ? titleLength : 7).join(" ") + ".."}</h4>
+                    <h4>
+                        {title
+                            .split(/ +/)
+                            .slice(0, titleLength ? titleLength : 7)
+                            .join(" ") + ".."}
+                    </h4>
                     <p>
                         {description.split(/ +/).slice(0, 10).join(" ") + "..."}
                     </p>

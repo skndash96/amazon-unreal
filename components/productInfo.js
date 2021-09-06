@@ -3,8 +3,8 @@ import Image from "next/image";
 import { ImStarHalf, ImStarFull } from "react-icons/im";
 import { useSelector, useDispatch } from "react-redux";
 import { HiSparkles } from "react-icons/hi";
-import gsap from 'gsap'
-import { useEffect } from 'react'
+import gsap from "gsap";
+import { useEffect } from "react";
 
 export default function ProductInfo({
     title,
@@ -27,38 +27,40 @@ export default function ProductInfo({
                 duration: 0.2,
                 scale: 0,
                 ease: "power3.easeIn",
-                onComplete: () => dispatch({
-                    type: 'CART_ADD',
-                    payload: {
-                        id: id
-                    }
-                })
-            })
+                onComplete: () =>
+                    dispatch({
+                        type: "CART_ADD",
+                        payload: {
+                            id: id,
+                        },
+                    }),
+            });
             gsap.from("#cartEdit", {
                 duration: 0.2,
-                opacity: 0
-            })
-            return
+                opacity: 0,
+            });
+            return;
         } else if (remove && isInCart.count === 1) {
             gsap.to("#cartEdit", {
                 duration: 0.2,
                 scale: 0,
                 ease: "power3.easeIn",
-                onComplete: () => dispatch({
-                    type: 'CART_REMOVE',
-                    payload: {
-                        id: id
-                    }
-                })
-            })
-            gsap.from('#cartAdd', {
+                onComplete: () =>
+                    dispatch({
+                        type: "CART_REMOVE",
+                        payload: {
+                            id: id,
+                        },
+                    }),
+            });
+            gsap.from("#cartAdd", {
                 duration: 0.2,
-                opacity: 0
-            })
-            
-            return
+                opacity: 0,
+            });
+
+            return;
         }
-        
+
         dispatch({
             type: remove ? "CART_REMOVE" : "CART_ADD",
             payload: {
@@ -70,21 +72,22 @@ export default function ProductInfo({
     const handleAddWish = (remove) => {
         gsap.to("#wishEdit", {
             rotate: isInWishlist ? "0" : "360deg",
-            onComplete: () => dispatch({
-                type: remove ? "WISHLIST_REMOVE" : "WISHLIST_ADD",
-                payload: {
-                    id: id,
-                },
-            })
-        })
+            onComplete: () =>
+                dispatch({
+                    type: remove ? "WISHLIST_REMOVE" : "WISHLIST_ADD",
+                    payload: {
+                        id: id,
+                    },
+                }),
+        });
     };
-    
+
     useEffect(() => {
-        gsap.from('#productPic', {
+        gsap.from("#productPic", {
             duration: 0.3,
-            scale: 0
-        })
-    }, [])
+            scale: 0,
+        });
+    }, []);
 
     return (
         <div className={"container " + styles.page}>
@@ -135,7 +138,7 @@ export default function ProductInfo({
                     onClick={() => handleAddWish(isInWishlist ? true : false)}
                 >
                     {" "}
-                    <HiSparkles id="wishEdit"/>{" "}
+                    <HiSparkles id="wishEdit" />{" "}
                 </button>
             </div>
 

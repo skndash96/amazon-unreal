@@ -34,7 +34,7 @@
             display: flex;
             gap: 0;
             transform-origin: 100% 50%;
-            transition: all .2s ease;
+            transition: all 0.2s ease;
             transform: scale(0);
             &[class~="active"] {
                 transform: scale(1);

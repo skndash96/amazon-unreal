@@ -38,10 +38,10 @@
     max-width: 90%;
     margin: 0 auto;
     background: darken($primary, 5%);
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     min-height: unset;
     box-shadow: inset 2px -2px 10px $primary;
-    border: 2px solid rgba($secondary, .25);
+    border: 2px solid rgba($secondary, 0.25);
     h2 {
         display: none;
     }

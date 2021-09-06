@@ -11,40 +11,41 @@ import { categories } from "../fakedata";
 import Navigation from "./navigation";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Products from './products'
-import { unmixedProducts } from '../fakedata'
+import Products from "./products";
+import { unmixedProducts } from "../fakedata";
 
 export default function Header() {
     const { cart } = useSelector((state) => state);
     const dispatch = useDispatch();
 
     const [search, setSearch] = useState({
-        value: '',
-        data: []
-    })
-    
+        value: "",
+        data: [],
+    });
+
     const closeResults = (event) => {
-        event.stopPropagation()
-        
+        event.stopPropagation();
+
         setSearch({
             value: "",
-            data: []
-        })
-    }
-    
+            data: [],
+        });
+    };
+
     const handleSearch = (event) => {
-        const value = event.target.value.toLowerCase()
+        const value = event.target.value.toLowerCase();
         const data = unmixedProducts.filter(
-            item => item.title.toLowerCase().includes(value) ||
-                    item.description.toLowerCase().includes(value)
-        )
-        
+            (item) =>
+                item.title.toLowerCase().includes(value) ||
+                item.description.toLowerCase().includes(value)
+        );
+
         setSearch({
             value: value,
-            data: data
-        })
-    }
-    
+            data: data,
+        });
+    };
+
     const openNav = () => {
         dispatch({
             type: "OPEN_NAV",
@@ -118,22 +119,22 @@ export default function Header() {
             </div>
 
             <Navigation />
-            
-            {search.value && <div onClick={closeResults} className={styles.results}>
-                {search.data.length
-                ? <Products
-                    title="Results"
-                    isMinimal={true}
-                    isResults = {true}
-                    products={search.data.slice(0, 5)}
-                    titleLength={2}
-                />
-                : <Products
-                    title="Oops"
-                    products={[]}
-                />
-                }
-            </div>}
+
+            {search.value && (
+                <div onClick={closeResults} className={styles.results}>
+                    {search.data.length ? (
+                        <Products
+                            title="Results"
+                            isMinimal={true}
+                            isResults={true}
+                            products={search.data.slice(0, 5)}
+                            titleLength={2}
+                        />
+                    ) : (
+                        <Products title="Oops" products={[]} />
+                    )}
+                </div>
+            )}
         </div>
     );
 }
